@@ -1,4 +1,4 @@
-Express & ES6 REST API Boilerplate
+Task #1 - Poe
 ==================================
 
 [![bitHound Score](https://www.bithound.io/github/developit/express-es6-rest-api/badges/score.svg)](https://www.bithound.io/github/developit/express-es6-rest-api)
