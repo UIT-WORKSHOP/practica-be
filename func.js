@@ -22,6 +22,27 @@ $(document).ready(function(){
         var username = $('#get-username').val();
         Post('api.php','action=getuser&username='+username,'showresult','result0');
     });
+    $('#add-user').click(function () {
+        var username=$('#add-username').val();
+        var password=$('#add-password').val();
+        var email=$('#add-email').val();
+        var profileName=$('#add-profilename').val();
+        console.log(username,password,email);
+        Post('api.php','action=adduser&username='+username+'&password='+password+'&email='+email+'&proName='+profileName,'showresult','result1');
+    });
+    $('#del-user').click(function () {
+        var username=$('#del-username').val();
+        console.log(username);
+        Post('api.php','action=deleteuser&username='+username,'showresult','result2');
+    });
+    $('#change-user').click(function () {
+        var username=$('#change-username').val();
+        var password=$('#change-password').val();
+        var email=$('#change-email').val();
+        var profileName=$('#change-profilename').val();
+        console.log(username,password,email);
+        Post('api.php','action=changeuser&username='+username+'&password='+password+'&email='+email+'&proName='+profileName,'showresult','result3');
+    });
 });
 
 function showresult(text, id) {
