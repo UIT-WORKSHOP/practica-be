@@ -1,7 +1,7 @@
 <?php
 require 'restful_api.php';
-require './class/database.php';
-require './class/user.php';
+require './src/database.php';
+require './src/user.php';
 class api extends restful_api {
 	function __construct(){
 		parent::__construct();
