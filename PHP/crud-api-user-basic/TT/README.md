@@ -11,15 +11,15 @@ Profile API sẽ được run bằng các method dưới đây:
 
 Action | HTTP method | Relative URI
 ------- | ----------- | ------------
-Lấy danh sách tất cả các profile | GET | .../user
-Lấy một profile theo username | GET | .../user/[username]
-Thêm một profile | POST | .../user
-Update một profile | PUT | .../user
-Delete một profile | DELETE | /user/[username]
+Lấy danh sách tất cả các profile | GET | .../api.php/user
+Lấy một profile theo username | GET | .../api.php/user/[username]
+Thêm một profile | POST | .../api.php/user
+Update một profile | PUT | .../api.php/user
+Delete một profile | DELETE | /api.php/user/[username]
 
 1. Đầu tiên, cần phải cài xammp hoặc wampserver để tạo máy chủ ảo trên localhost, có thể tham khảo cách cài xammp tại đây https://thachpham.com/thu-thuat/cai-dat-localhost-xampp.html. 
 2. Cài đặt database, vào mysql và import file sqldata.sql vào, có thể xem hướng dẫn import database tại đây https://trungquandev.com/huong-dan-import-database-trong-phpmyadmin/.
 3. Test: Có hai cách test là:
-   * Test trực tiếp trên trình duyệt, có thể dùng chrome hoặc firefox để test. Truy cập địa chỉ localhost/[Tên folder chứa source code]/[Đường dẫn ở phía trên]. Ví dụ lấy thông tin user test3: localhost/TT/test3
+   * Test trực tiếp trên trình duyệt, có thể dùng chrome hoặc firefox để test. Truy cập địa chỉ localhost/[Tên folder chứa source code]/[Đường dẫn ở phía trên]. Ví dụ lấy thông tin user test3: localhost/TT/api.php/test3
    * Test thông qua Postman, hướng dẫn cài postman https://blog.duyetdev.com/2016/03/postman.html#.WLRVPDuLTIU
 
