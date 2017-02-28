@@ -24,3 +24,6 @@ Delete một profile | DELETE | /api.php/user/[username]
    * Test trực tiếp trên trình duyệt, có thể dùng chrome hoặc firefox để test. Truy cập địa chỉ localhost/[Tên folder chứa source code]/[Đường dẫn ở phía trên]. Ví dụ lấy thông tin user test3: localhost/TT/api.php/test3
    * Test thông qua Postman, hướng dẫn cài postman https://blog.duyetdev.com/2016/03/postman.html#.WLRVPDuLTIU
 
+### Team: 
+* chickenhat(chickenhat)
+* alice(mrthat1996)
