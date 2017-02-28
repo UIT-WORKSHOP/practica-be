@@ -5,6 +5,7 @@
 * api.php: Nơi gọi API và xử lý 4 method cho việc xử lý dữ liệu.
 * sqldata.sql: Tạo database.
 * func.js,index.html: Dùng để test trực tiếp trên trình duyệt.
+
 # How To Test
 
 Profile API sẽ được run bằng các method dưới đây:
