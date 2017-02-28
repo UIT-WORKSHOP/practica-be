@@ -1,7 +1,7 @@
 ﻿#Create Update Delete Read data with ASP.NET Web API
 
 ##About Author
-Done by Đinh Hồng Phi [My-github-ID](https://github.com/UIT-WORKSHOP/practica-be/edit/asp-net/%231-phi)
+Done by Đinh Hồng Phi [My-github-ID](https://github.com/dinhhongphi)
 
 ##Cấu trúc file
 
