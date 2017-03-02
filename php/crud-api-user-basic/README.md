@@ -1,20 +1,10 @@
-RUD / REST API - User basic
+# CRUD / REST API - User basic 
 
-## Goals
-
-- Be able to insert, replace, update, delete a user via API
-- User information including at least: Username, email, password, profile name.
-
-Hint:
-- Try to understand how a CRUD/RESTful API work
-- Find a good practice / framework to build a basic API
-
-Available Reference:
-- Google ;)
-
-Some sample framework can find in branch: nodejs/sample
-
-## If you don't know => Ask:exclamation:
-
-## :green_apple: Nothing perfect
-:exclamation: :exclamation:Please contribute to this if you see anything can be improved. Or you can discuss on Slack Group prior to contribute anything.
+# How to test my code:
+  Use RestEasy chrome-extension to test my code or anything else.
+  
+  - localhost/php/crud-api-user-basic/{id}            Lấy profile 1 user theo id
+  - localhost/php/crud-api-user-basic/add             Thêm 1 user 
+  - localhost/php/crud-api-user-basic/update/{id}     Update một user
+  - localhost/php/crud-api-user-basic/delete/{id}     Delete một user
+  
