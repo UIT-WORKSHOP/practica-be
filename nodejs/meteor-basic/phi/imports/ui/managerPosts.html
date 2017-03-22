@@ -1,0 +1,44 @@
+﻿<template name="managerPosts">
+    {{#if currentUser}}
+        <a href="/createpost">Create Post</a>
+        <hr />
+        <div class="container">
+            <div class="col-md-9">
+                <h3>Danh sách bài viết</h3>
+                {{#each getPosts}}
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <div class="container-fluid">
+                                <div class="col-md-2">
+                                    <img src="{{thumbnail}}" class="img-thumbnail" alt="none" />
+                                </div>
+                                <div class="col-md-9">
+                                    {{header}}
+                                </div>
+                                <div class="col-md-1">
+                                    <div class="list-group">
+                                        <a class="post-detail" href="/post/detail/{{_id}}?mode=detail">Detail</a>
+                                        <a class="post-edit" href="/post/edit/{{_id}}?mode=edit">Edit</a>
+                                        <a class="post-delete"><span class="label label-danger">Delete</span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-footer">
+                            {{#if isPublic}}
+                            <span class="label label-success">{{postType}}</span>
+                            {{else}}
+                            <span class="label label-warning">{{postType}}</span>
+                            {{/if}}
+                            <span>{{formatDate createdAt}}</span>
+                        </div>
+                    </div>
+                 {{/each}}
+            </div>
+            <div class="col-md-3">
+            </div>
+        </div>
+    {{else}}
+        {{> requireLogin}}
+    {{/if}}
+</template>
