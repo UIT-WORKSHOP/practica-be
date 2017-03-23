@@ -1,7 +1,7 @@
 import './memberPanel.html';
 import './postOfUser.html';
 import { Template } from 'meteor/templating';
-import { Posts } from '../api/db.js';
+import { Posts } from '../../api/db-posts.js';
 import { Meteor } from 'meteor/meteor';
 Template.memberPanel.helpers({
     getdata() {
