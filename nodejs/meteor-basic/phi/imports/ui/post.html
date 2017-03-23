@@ -1,0 +1,20 @@
+<template name="post1">
+    <!--Have pannel heading-->
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <div class="container-fluid">
+                <div class="col-md-2"><img class="img-thumbnail" src="{{thumbnail}}" alt="image" style="width:100px; height:100px; "/></div>
+                <div class="col-md-8">{{header}}</div>
+                <div class="col-md-2">
+                    <div class="list-group">
+                        <span>{{formatDate createdAt}}</span>
+                        <span class="label label-info">by {{getUserName}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel-body">
+            {{content}}
+        </div>
+    </div>
+</template>

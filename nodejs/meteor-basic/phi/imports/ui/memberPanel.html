@@ -1,0 +1,16 @@
+<template name="memberPanel">
+    <div class="panel panel-default">
+        <div class="panel-heading">Member</div>
+        <div class="panel-body">
+            <ul class="list-group">
+                {{#each getdata}}
+                <li class="list-group-item">
+                    <div class="container-fluid">
+                        {{> postOfUser}}
+                    </div>
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+</template>

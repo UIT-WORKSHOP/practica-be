@@ -3,7 +3,7 @@ import { Meteor } from 'meteor/meteor';
 FlowRouter.route('/', {
     name: 'homepage',
     action() {
-        BlazeLayout.render('UITemplate');
+        BlazeLayout.render('UITemplate', {main: 'homepage'});
     }
 })
 
