@@ -1,0 +1,36 @@
+<template name="firstPage">
+  <h1>This is Main page</h1>
+</template>
+
+<template name="viewArticle">
+  {{#each articles}}
+    {{>article}}
+  {{/each}}
+</template>
+
+<template name="article">
+    <h2><a href="/article/{{title}}">{{title}}</a></h2>
+   <div class="row">
+        <div class="col-sm-3">
+          <div class="well">
+           <p>{{athor}}</p>
+           <img src="{{imgSrc}}" class="img-circle" height="55" width="55" alt="{{athor}}">
+          </div>
+        </div>
+        <div class="col-sm-9">
+          <div class="well">
+            <p>{{content}}</p>
+          </div>
+        </div>
+    </div>
+</template>
+<template name="checkCurrentUser">
+    {{#if currentUser}}
+        {{>dashboard}}
+    {{else}}
+        <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+    {{/if}}
+</template>
+<template name="addArticle">
+        <li><a href="/addarticle">Add Article</a></li>
+</template>
