@@ -5,6 +5,9 @@ import { Posts } from '../../api/posts/posts.js';
 
 Template.postPanel.helpers({
     getPosts() {
-        return Posts.find({ postType: { $eq: 'Public' } });
+        if (Meteor.userId()) {
+            return Posts.find();
+        }else
+            return Posts.find({ postType: { $eq: 'Public' } });
     }
 });

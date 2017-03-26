@@ -6,8 +6,14 @@ import { Meteor } from 'meteor/meteor';
 Template.memberPanel.helpers({
     getdata() {
         var memberPost = [];
+        //see more when sign in
+        var type = ['Public'];
+        if (Meteor.userId()) {
+            type = ['Public', 'Private'];
+        };
+
         var users = Meteor.users.find().forEach(function (user) {
-            var postCount = Posts.find({ userOwner: { $eq: user._id }, postType: { $eq: 'Public' } }).count();
+            var postCount = Posts.find({ userOwner: { $eq: user._id }, postType: { $in: type } }).count();
             var name = '';
             if (user.hasOwnProperty('username'))
                 name = user.username;
