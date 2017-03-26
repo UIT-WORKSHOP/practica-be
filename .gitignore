@@ -62,3 +62,6 @@ typings/
 
 #Window 
 .vs
+
+#secret file
+development.json

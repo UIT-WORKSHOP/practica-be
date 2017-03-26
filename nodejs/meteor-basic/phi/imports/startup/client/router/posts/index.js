@@ -1,11 +1,3 @@
-import { Posts } from '../../imports/api/db.js';
-//FlowRouter.route('/posts/delete/:id', {
-//    name: 'homepage',
-//    action(params) {
-//        console.log(params);
-//        Posts.remove(params);
-//    }
-//})
 
 
 FlowRouter.route('/post/edit/:id', {

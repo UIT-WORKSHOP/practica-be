@@ -1,7 +1,8 @@
 import { Template } from 'meteor/templating';
-import { Posts } from '../api/db.js';
 import { Meteor } from 'meteor/meteor';
 import './PostTemplate.html';
+import '../share/requireLogin.html';
+import { Posts } from '../../api/posts/posts.js';
 
 Template.PostTemplate.helpers({
     getdata: function () {
@@ -33,28 +34,35 @@ Template.PostTemplate.helpers({
 Template.PostTemplate.events({
     'click #save'(event, instance) {
         data = {
-            userOwner: Meteor.userId(),
             header: $('#postName').val(),
             content: $('#content').val(),
             thumbnail: $('#thumbnail').val(),
             postType: $("input[name='posttype']:checked").val(),
-            createdAt: new Date()
         };
         if (this.mode == 'edit') {
-            Posts.update(this.post._id,
-                {
-                    header: data.header,
-                    thumbnail: data.thumbnail,
-                    content: data.content,
-                    postType: $("input[name='posttype']:checked").val(),
-                    userOwner: data.userOwner,
-                    createdAt: this.post.createdAt
+            Id = "";
+            if (this.hasOwnProperty('post') && this.post.hasOwnProperty('_id')) {
+                Id = this.post._id;
+            } else {
+                return Error("data error");
+            };
+            data.postId = Id;
+            Meteor.call('posts.update', data, function (err, result) {
+                if (err) {
+                    alert(err.message);
+                    return;
                 }
-            );
+                FlowRouter.go('/managerposts');
+            });
         } else {
-            Posts.insert(data);
+            Meteor.call('posts.insert', data, function (err, result) {
+                if (err) {
+                    alert(err.message);
+                    return;
+                }
+                FlowRouter.go('/managerposts');
+            });
         }
-        FlowRouter.go('/managerposts');
     },
     'click #back'(event) {
         FlowRouter.go('/managerposts');
