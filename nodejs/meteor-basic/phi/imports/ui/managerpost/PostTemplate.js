@@ -1,7 +1,9 @@
 import { Template } from 'meteor/templating';
 import { Meteor } from 'meteor/meteor';
 import './PostTemplate.html';
-import { Posts } from '../../api/db-posts.js';
+import '../share/requireLogin.html';
+import { Posts } from '../../api/posts/posts.js';
+
 Template.PostTemplate.helpers({
     getdata: function () {
         id = FlowRouter.getParam('id');
@@ -38,11 +40,29 @@ Template.PostTemplate.events({
             postType: $("input[name='posttype']:checked").val(),
         };
         if (this.mode == 'edit') {
-            Meteor.call('posts.update', this.post._id, data);
+            Id = "";
+            if (this.hasOwnProperty('post') && this.post.hasOwnProperty('_id')) {
+                Id = this.post._id;
+            } else {
+                return Error("data error");
+            };
+            data.postId = Id;
+            Meteor.call('posts.update', data, function (err, result) {
+                if (err) {
+                    alert(err.message);
+                    return;
+                }
+                FlowRouter.go('/managerposts');
+            });
         } else {
-            Meteor.call('posts.insert', data);
+            Meteor.call('posts.insert', data, function (err, result) {
+                if (err) {
+                    alert(err.message);
+                    return;
+                }
+                FlowRouter.go('/managerposts');
+            });
         }
-        FlowRouter.go('/managerposts');
     },
     'click #back'(event) {
         FlowRouter.go('/managerposts');

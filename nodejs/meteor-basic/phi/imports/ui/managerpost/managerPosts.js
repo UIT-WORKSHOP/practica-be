@@ -1,5 +1,6 @@
 import './managerPosts.html';
-import { Posts } from '../../api/db-posts.js';
+import '../share/requireLogin.html';
+import { Posts } from '../../api/posts/posts.js';
 import { Template } from 'meteor/templating';
 import { Meteor } from 'meteor/meteor';
 
@@ -15,6 +16,7 @@ Template.managerPosts.helpers({
 
 Template.managerPosts.events({
     'click .post-delete'(event) {
-        Meteor.call('posts.remove', this._id);
+        object = { postId: this._id };
+        Meteor.call('posts.remove', object);
     }
 });

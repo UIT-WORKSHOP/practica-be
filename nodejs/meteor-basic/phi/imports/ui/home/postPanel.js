@@ -1,7 +1,7 @@
 import './postPanel.html';
 import '../share/post.js';
 import { Template } from 'meteor/templating';
-import { Posts } from '../../api/db-posts.js';
+import { Posts } from '../../api/posts/posts.js';
 
 Template.postPanel.helpers({
     getPosts() {
