@@ -32,7 +32,7 @@ Router.route('/article/:_title', function () {
   this.render('addArticle',{to: 'addArticle'});
 })
 
-Router.route('/article', function () {
+Router.route('/articles', function () {
   this.render('viewArticle');
   this.render('addArticle',{to: 'addArticle'});
   this.render('checkCurrentUser',{to: 'checkCurrentUser'});

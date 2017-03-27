@@ -4,7 +4,6 @@ import { FilesCollection } from 'meteor/ostrio:files';
 export const Article = new Mongo.Collection('article');
 export var Images = new FilesCollection({
   collectionName: 'Images',
-  allowClientCode: false, // Disallow remove files from Client
   storagePath: function(){ return '/data'; },
   onBeforeUpload: function (file) {
     // Allow upload files under 10MB, and only in png/jpg/jpeg formats

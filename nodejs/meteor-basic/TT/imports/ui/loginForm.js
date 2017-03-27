@@ -6,14 +6,15 @@ Template.login.events({
         var emailVar = event.target.loginEmail.value;
         var passwordVar = event.target.loginPassword.value;
         Meteor.loginWithPassword(emailVar,passwordVar,function(error){
+            alert('User or Password not match!');
            if(error) console.log(error) ;
         });
     },
-    'click .loginFacebook': function(e) {
-        e.preventDefault();
-        Meteor.loginWithFacebook({requestPermissions: ['public_profile', 'email']}, function(err){
-            if (err) {
-                console.log('Error: ', err);
+    'click .loginFacebook': function(event) {
+        event.preventDefault();
+        Meteor.loginWithFacebook({requestPermissions: ['public_profile', 'email']}, function(error){
+            if (error) {
+                console.log('Error: ', error);
             }
         });
 
@@ -22,6 +23,5 @@ Template.login.events({
 Template.login.helpers({
     redirect(){
         Router.go('/');
-        console.log('ss');
     }
 })

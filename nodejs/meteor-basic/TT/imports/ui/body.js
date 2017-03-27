@@ -6,9 +6,17 @@ import './addArticlePage.js';
 import './articlePage.js';
 import {Article} from '../api/db.js';
 import {Meteor} from 'meteor/meteor';
+import { Images } from '../api/db.js';
 
 Template.viewArticle.helpers({
         articles(){
             return Article.find({});
         },
 });
+Template.viewArticle.events({
+    'click .btn':function(event,template){
+        imageId=Article.findOne({_id:this._id}).imageId;
+        Images.remove({_id:imageId});
+        Article.remove({_id:this._id});
+    }
+})

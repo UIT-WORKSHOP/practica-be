@@ -13,14 +13,16 @@ Template.addArticlePage.events({
         if (e.currentTarget.files && e.currentTarget.files[0]) {
             var upload = Images.insert({
                 file: e.currentTarget.files[0],
-                streams: 'dynamic',
-                chunkSize: 'dynamic',
-                onUploaded: function (err, fileRef) {
+            }, false);
+            upload.on('uploaded', function(error,fileRef){
+                if(error) {
+                    console.log(error);
+                }
+                else {
                     template.currentUpload.set(fileRef);
                     console.log(fileRef);
-                },
-            }, false);
-
+                }
+            })
             upload.on('end', function (error, fileObj) {
                 if (error) {
                     alert('Error during upload: ' + error);
@@ -45,29 +47,30 @@ Template.addArticlePage.events({
         }
         else {
             const content = event.target.content.value;
-            let athor = "";
+            let author = "";
             if (Meteor.userId()) {
                 try {
 
                     console.log(Meteor.user().emails["0"].address);
-                    athor = Meteor.user().emails["0"].address;
+                    author = Meteor.user().emails["0"].address;
                 }
                 catch (ex) {
-                    athor = Meteor.user().services.facebook.email;
+                    author = Meteor.user().services.facebook.email;
                 }
             }
             else {
                 console.log('no email');
-                athor = "Guess";
+                author = "Guess";
             }
             Article.insert({
                 title,
                 content,
                 imageUrl,
-                athor,
+                imageId,
+                author,
                 createAt: new Date(),
             })
-            Router.go('/');
+            Router.go('/articles');
         }
     }
     
