@@ -1,0 +1,17 @@
+<template name="loginButton">
+    <div class="row">
+        {{#if currentUser}}
+        <div class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                {{profileName}} <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+                <li><a href="#">Profile</a></li>
+                <li class="logout"><a href="#">Log out</a></li>
+            </ul>
+        </div>
+        {{else}}
+        <a href="/account/login">Login</a>
+        {{/if}}
+    </div>
+</template>

@@ -1,7 +1,7 @@
 import { Template } from 'meteor/templating';
 import { Meteor } from 'meteor/meteor';
 import './PostTemplate.html';
-import '../share/requireLogin.html';
+import './requireLogin.html';
 import { Posts } from '../../api/posts/posts.js';
 
 Template.PostTemplate.helpers({

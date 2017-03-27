@@ -1,5 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import './posts';
+import './account';
 
 FlowRouter.route('/', {
     name: 'homepage',

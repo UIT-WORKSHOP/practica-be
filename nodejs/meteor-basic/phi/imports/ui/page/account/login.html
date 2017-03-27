@@ -1,0 +1,35 @@
+<template name="login">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <form class="login-form">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <h3 class="text-center">Login</h3>
+                        <hr />
+                        {{#if isNullOrEmpty error}}
+                        {{else}}
+                        <div class="form-group">
+                            <div class="alert alert-danger" role="alert">{{error}}</div>
+                        </div>
+                        {{/if}}
+                        <div class="form-group">
+                            <label for="username">UserName</label>
+                            <input type="text" id="username" placeholder="Username" class="form-control"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" id="password" placeholder="Password" class="form-control"/>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-default" type="submit">Login</button>
+                            <button class="btn btn-default btn-facebook">Login with Facebook</button>
+                        </div>
+                        <div>
+                            <a href="/account/register">Create account</a>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</template>

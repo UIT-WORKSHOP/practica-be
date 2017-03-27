@@ -1,6 +1,6 @@
 import './managerPosts.html';
-import '../share/requireLogin.html';
-import { Posts } from '../../api/posts/posts.js';
+import '../../template/requireLogin.html';
+import { Posts } from '../../../api/posts/posts.js';
 import { Template } from 'meteor/templating';
 import { Meteor } from 'meteor/meteor';
 
