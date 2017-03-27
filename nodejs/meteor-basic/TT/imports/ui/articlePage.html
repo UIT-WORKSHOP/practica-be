@@ -1,18 +1,14 @@
 <template name="articlePage">
   {{#with articles}}
-    <h2>{{title}}</h2>
-   <div class="row">
-        <div class="col-sm-3">
-          <div class="well">
-           <p>{{athor}}</p>
-           <img src="{{imgSrc}}" class="img-circle" height="55" width="55" alt="{{athor}}">
-          </div>
-        </div>
-        <div class="col-sm-9">
-          <div class="well">
-            <p>{{content}}</p>
-          </div>
-        </div>
-    </div>
+  <h2>{{title}}</h2>
+  <div class="row">
+    <p style="text-align: right;">{{athor}}</p>
+  </div>
+  <div class="row">
+      <div class="col-sm-9-offset-3">
+        <p>{{content}}</p>
+        <img src="{{imageUrl}}" alt="{{athor}}">
+      </div>
+  </div>
   {{/with}}
 </template>
