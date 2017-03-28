@@ -9,6 +9,12 @@
     </div>
     <hr />
     <form>
+        {{#if isNullOrEmpty error}}
+        {{else}}
+        <div class="form-group">
+            <div class="alert alert-danger" role="alert">{{error}}</div>
+        </div>
+        {{/if}}
         <div class="form-group">
             <label for="exampleInputEmail1">Tên bài viết</label>
             <input type="text" class="form-control" id="postName" placeholder="Tên bài viết" value="{{post.header}}" disabled="{{IsDisable mode}}">

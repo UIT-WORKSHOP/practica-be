@@ -4,6 +4,11 @@ import './PostTemplate.html';
 import './requireLogin.html';
 import { Posts } from '../../api/posts/posts.js';
 
+
+Template.PostTemplate.onCreated(function () {
+    this.error = new ReactiveVar("");
+});
+
 Template.PostTemplate.helpers({
     getdata: function () {
         id = FlowRouter.getParam('id');
@@ -28,6 +33,10 @@ Template.PostTemplate.helpers({
     IsDisable(mode) {
         if (mode == 'detail') return true;
         return false;
+    },
+    error: () => {
+        console.log("asdfas");
+        return Template.instance().error.get();
     }
 });
 
@@ -49,7 +58,7 @@ Template.PostTemplate.events({
             data.postId = Id;
             Meteor.call('posts.update', data, function (err, result) {
                 if (err) {
-                    alert(err.message);
+                    instance.error.set(err.error);
                     return;
                 }
                 FlowRouter.go('/managerposts');
@@ -57,7 +66,7 @@ Template.PostTemplate.events({
         } else {
             Meteor.call('posts.insert', data, function (err, result) {
                 if (err) {
-                    alert(err.message);
+                    instance.error.set(err.error);
                     return;
                 }
                 FlowRouter.go('/managerposts');
