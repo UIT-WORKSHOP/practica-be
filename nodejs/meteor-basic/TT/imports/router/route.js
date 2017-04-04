@@ -26,7 +26,7 @@ Router.route('/addarticle', function () {
   this.render('addArticlePage');
 })
 
-Router.route('/article/:_title', function () {
+Router.route('/article/:_titleUrl', function () {
   this.render('articlePage');
   this.render('checkCurrentUser',{to: 'checkCurrentUser'});
   this.render('addArticle',{to: 'addArticle'});
@@ -34,6 +34,18 @@ Router.route('/article/:_title', function () {
 
 Router.route('/articles', function () {
   this.render('viewArticle');
+  this.render('addArticle',{to: 'addArticle'});
+  this.render('checkCurrentUser',{to: 'checkCurrentUser'});
+})
+
+Router.route('/user/profile', function() {
+  this.render('profile');
+  this.render('addArticle',{to: 'addArticle'});
+  this.render('checkCurrentUser',{to: 'checkCurrentUser'});
+})
+
+Router.route('/user/profile/edit', function() {
+  this.render('profile');
   this.render('addArticle',{to: 'addArticle'});
   this.render('checkCurrentUser',{to: 'checkCurrentUser'});
 })

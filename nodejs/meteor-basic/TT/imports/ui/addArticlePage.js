@@ -38,6 +38,7 @@ Template.addArticlePage.events({
     'submit .addArticle': function(event){
         event.preventDefault();
         const title=event.target.title.value;
+        var titleUrl=encodeURI(title);
         var imageId=Template.instance().currentUpload.get()._id;
         const imageUrl=Images.findOne({_id:imageId}).link();
         if(Article.findOne({title:title})){
@@ -49,14 +50,8 @@ Template.addArticlePage.events({
             const content = event.target.content.value;
             let author = "";
             if (Meteor.userId()) {
-                try {
-
-                    console.log(Meteor.user().emails["0"].address);
-                    author = Meteor.user().emails["0"].address;
-                }
-                catch (ex) {
-                    author = Meteor.user().services.facebook.email;
-                }
+                console.log(Meteor.user().emails['0'].address);
+                author = Meteor.user().emails['0'].address;
             }
             else {
                 console.log('no email');
@@ -68,6 +63,7 @@ Template.addArticlePage.events({
                 imageUrl,
                 imageId,
                 author,
+                titleUrl,
                 createAt: new Date(),
             })
             Router.go('/articles');

@@ -1,3 +1,6 @@
 <template name="dashboard">
+   {{#with userInfo}}
+    <li><a href="user/profile">{{username}}</a></li>
     <li><a href="#" class="logout"><span class="glyphicon glyphicon-log-in "></span> Logout</a></li>
+      {{/with}}
 </template>

@@ -6,3 +6,12 @@ Template.dashboard.events({
         Meteor.logout();
     }
 });
+
+Template.dashboard.helpers({
+    'userInfo' : function(){
+        if(Meteor.userId()) {
+           return Meteor.users.findOne({_id : Meteor.userId()});
+        }
+        else alert('error');
+    }
+})

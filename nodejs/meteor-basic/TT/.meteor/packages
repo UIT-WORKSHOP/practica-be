@@ -26,3 +26,5 @@ accounts-base
 accounts-facebook
 service-configuration
 ostrio:files
+http
+session
